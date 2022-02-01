@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ionic-react-store-ui",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
