@@ -119,3 +119,20 @@ font-size: 1.75rem;
 
   --color: rgb(99, 99, 99);
 }
+
+
+.page-title {
+
+  text-transform: uppercase;
+}
+
+.tab-dot {
+
+  border-radius: 500px;
+  background-color: var(--ion-tab-bar-color-selected);
+  height: 5px;
+  width: 5px;
+  margin-top: 2.7rem;
+  position: absolute;
+  z-index: 999;
+}

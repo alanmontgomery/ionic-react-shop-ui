@@ -1,16 +1,6 @@
 import { Redirect, Route } from 'react-router-dom';
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-  setupIonicReact
-} from '@ionic/react';
+import { IonApp, IonIcon, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { cartOutline, ellipse, heartOutline, homeOutline, square, triangle } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,32 +23,49 @@ import './theme/variables.css';
 import 'animate.css';
 
 import { pages } from './pages';
+import { useState } from 'react';
 
 setupIonicReact();
 
-const App = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
+const App = () => {
 
-          {pages.map((page, index) => (
-          
-            <Route exact path={page.href} component={page.component} />
-          ))}
-        </IonRouterOutlet>
+  const [ selected, setSelected ] = useState("tab0");
 
-        <IonTabBar slot="bottom">
-          {pages.map((page, index) => (
-            <IonTabButton tab={`tab${index}`} href={page.href}>
-              <IonIcon icon={page.icon} />
-            </IonTabButton>
-          ))}
-        </IonTabBar>
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonTabs onIonTabsWillChange={e => setSelected(e.detail.tab)}>
+          <IonRouterOutlet>
 
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+            {pages.map((page, index) => (
+              <Route key={`route_${index}`} exact path={page.href} component={page.component} />
+            ))}
+
+            <Route exact path="/">
+              <Redirect to={pages.filter(p => p.default)[0].href} />
+            </Route>
+          </IonRouterOutlet>
+
+          <IonTabBar slot="bottom">
+            {pages.map((page, index) => {
+
+              const isSelected = selected === `tab${index}`;
+
+              if (page.isTab) {
+                return (
+                  <IonTabButton key={`tab${index}`} tab={`tab${index}`} href={page.href}>
+                    <IonIcon icon={page.icon} />
+                    { isSelected && <div className="tab-dot" /> }
+                  </IonTabButton>
+                );
+              }
+            })}
+          </IonTabBar>
+
+        </IonTabs>
+      </IonReactRouter>
+    </IonApp>
+  );
+}
 
 export default App;
