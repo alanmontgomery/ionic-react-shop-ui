@@ -58,7 +58,7 @@ const App = () => {
                     { isSelected && <div className="tab-dot" /> }
                   </IonTabButton>
                 );
-              }
+              } else return null;
             })}
           </IonTabBar>
 

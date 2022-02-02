@@ -116,7 +116,7 @@ const ProductType = () => {
                     </IonLabel>
                   </IonCol>
                 );
-              }
+              } else return null;
             })}
           </IonRow>
         </IonGrid>
