@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { FilterModal } from '../components/FilterModal';
+import { ProductModal } from '../components/ProductModal';
 import { capitalize, productInfo } from '../utils';
 
 const ProductType = () => {
@@ -17,6 +18,21 @@ const ProductType = () => {
 
   const filters = productInfo[category].productTypes[type].filters;
   const searchPlaceholder = productInfo[category].productTypes[type].searchPlaceholder;
+
+  const [selectedProduct, setSelectedProduct] = useState([]);
+  const [presentProductModal, dismissProductModal] = useIonModal(ProductModal, {
+
+    dismiss: () => dismissProductModal(),
+    category,
+    type,
+    product: selectedProduct    
+  });
+
+  const handleProductModal = product => {
+
+    setSelectedProduct(product);
+    presentProductModal();
+  }
   
   const [present, dismiss] = useIonModal(FilterModal, {
 
@@ -108,7 +124,7 @@ const ProductType = () => {
 
               if (product.image !== null && product.image !== "" && !product.image.includes("Placeholder")) {
                 return (
-                  <IonCol key={index} size="6" style={{display: ((filterCriteria !== "None" && product.title.toLowerCase().includes(filterCriteria.toLowerCase())) || filterCriteria === "None") ? "block" : "none"}}>
+                  <IonCol onClick={() => handleProductModal(product)} key={index} size="6" sizeXs="6" sizeSm="3" sizeMd="3" sizeXl="2" style={{display: ((filterCriteria !== "None" && product.title.toLowerCase().includes(filterCriteria.toLowerCase())) || filterCriteria === "None") ? "block" : "none"}}>
                     <IonImg src={product.image} style={{marginBottom: "0.25rem"}} />
                     <IonLabel>
                       <h3>{product.title}</h3>

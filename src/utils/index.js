@@ -3,6 +3,7 @@ export const capitalize = s => s && (s[0].toUpperCase() + s.slice(1)).replaceAll
 export const productInfo = {
 
 	men: {
+		
 		coverImage: "",
 		productTypes: {
 
@@ -60,3 +61,88 @@ export const productInfo = {
 	},
 
 };
+
+export const productSpecs = {
+
+	dimensions: {
+
+		header: "Dimensions",
+		options: [
+			{
+				label: "Height",
+				value: "100cm"
+			},
+			{
+				label: "Width",
+				value: "130cm"
+			},
+			{
+				label: "Depth",
+				value: "150cm"
+			}
+		]
+	},
+	shipping: {
+
+		header: "Shipping",
+		options: [
+			{
+				label: "UK",
+				value: "£4.99"
+			},
+			{
+				label: "USA",
+				value: "£6.99"
+			},
+			{
+				label: "Gloal",
+				value: "£9.99"
+			}
+		]
+	},
+	colors: {
+
+		header: "Colors",
+		noteColor: true,
+		options: [
+			{
+				label: "Red",
+				value: true
+			},
+			{
+				label: "Blue",
+				value: false
+			},
+			{
+				label: "Brown",
+				value: true
+			}
+		]
+	},
+	sizes: {
+
+		header: "Sizes",
+		wrapText: true,
+		options: [
+			{
+				label: "Large",
+				value: "Check size guide for details"
+			},
+			{
+				label: "Width",
+				value: "Check size guide for details"
+			},
+			{
+				label: "Depth",
+				value: "Check size guide for details"
+			}
+		]
+	}
+};
+
+export const randomCount = () => {
+
+	const max = 273;
+	const min = 23;
+	return Math.floor(Math.random() * (max - min) + min).toFixed(0);
+}

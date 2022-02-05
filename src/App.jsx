@@ -38,7 +38,7 @@ const App = () => {
           <IonRouterOutlet>
 
             {pages.map((page, index) => (
-              <Route key={`route_${index}`} exact path={page.href} component={page.component} />
+              <Route key={`route_${index}`} exact={true} path={page.href} component={page.component} />
             ))}
 
             <Route exact path="/">

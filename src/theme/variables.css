@@ -88,6 +88,13 @@ ion-tab-bar {
   height: 5rem;
 }
 
+ion-toolbar,
+ion-header {
+
+  --background: white;
+  --border-color: #F4F5F8;
+}
+
 ion-tab-bar.floating {
 
 --background: white;
