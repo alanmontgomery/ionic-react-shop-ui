@@ -1,7 +1,6 @@
-import { cartOutline, heartOutline, homeOutline, shirtOutline } from "ionicons/icons";
+import { heartOutline, homeOutline, shirtOutline } from "ionicons/icons";
 
 import Categories from "./Categories";
-import Cart from "./Cart";
 import Favourites from "./Favourites";
 import ProductType from "./ProductType";
 import Category from "./Category";
@@ -34,13 +33,6 @@ export const pages = [
     component: Category,
     default: true,
     isTab: false
-  },
-  {
-    href: "/cart",
-    icon: cartOutline,
-    component: Cart,
-    default: false,
-    isTab: true
   },
   {
     href: "/favourites",

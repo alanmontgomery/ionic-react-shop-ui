@@ -139,7 +139,25 @@ font-size: 1.75rem;
   background-color: var(--ion-tab-bar-color-selected);
   height: 5px;
   width: 5px;
-  margin-top: 2.7rem;
+  margin-top: 1.5rem;
   position: absolute;
   z-index: 999;
+}
+
+.cart-count {
+
+  position: absolute;
+  background-color: rgb(42, 42, 42);
+  color: white;
+  border-radius: 500px;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  bottom: 2px;
+  margin-left: 2px;
 }
