@@ -1,7 +1,9 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonLabel, IonNote, IonPage, IonRow, IonTitle, IonToolbar, useIonRouter } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonLabel, IonNote, IonPage, IonRouterLink, IonRow, IonTitle, IonToolbar, useIonRouter } from '@ionic/react';
 import { chevronBack } from 'ionicons/icons';
 import { useParams } from 'react-router';
 import { capitalize, productInfo } from '../utils';
+
+import styles from "./Categories.module.scss";
 
 const Category = () => {
 
@@ -34,9 +36,16 @@ const Category = () => {
         </IonHeader>
 
         <IonRow>
-          {productTypes.map(c => (
+          {productTypes.map(product => (
 
-            <IonButton key={c} routerLink={`/categories/${category}/${c.toLowerCase().replaceAll(" ", "_")}`}>{capitalize(c)}</IonButton>
+            <IonRouterLink routerLink={`/categories/${category}/${product.toLowerCase().replaceAll(" ", "_")}`}>
+              <div className={styles.categoryContainer}>
+                <img src={productInfo[category].productTypes[product].coverImage} alt="cover" />
+                <p>{capitalize(product)}</p>
+              </div>
+            </IonRouterLink>
+
+            // <IonButton key={c} routerLink={`/categories/${category}/${c.toLowerCase().replaceAll(" ", "_")}`}>{capitalize(c)}</IonButton>
           ))}
         </IonRow>
       </IonContent>

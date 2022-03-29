@@ -29,7 +29,7 @@ const Categories = () => {
 
             <IonRouterLink routerLink={`/categories/${category.toLowerCase()}`}>
               <div className={styles.categoryContainer}>
-                <img src={productInfo[category].coverImage}  />
+                <img src={productInfo[category].coverImage} alt="cover" />
                 <p>{capitalize(category)}</p>
               </div>
             </IonRouterLink>

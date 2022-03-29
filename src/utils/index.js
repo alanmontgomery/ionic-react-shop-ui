@@ -8,14 +8,17 @@ export const productInfo = {
 		productTypes: {
 
 			formal_shirts: {
+				coverImage: "/assets/formal_shirts2.jpeg",
 				filters: ["None", "Regular", "Slim", "Stretch"],
 				searchPlaceholder: "Single Cuff"
 			},
 			sportswear: {
+				coverImage: "/assets/sportswear2.jpeg",
 				filters: ["None", "Trainers", "Joggers", "Shorts", "Hoodie"],
 				searchPlaceholder: "Nike"
 			},
 			coats: {
+				coverImage: "/assets/coats3.jpeg",
 				filters: ["None", "Funnel", "Hooded", "Barbour", "Collar"],
 				searchPlaceholder: "Bomber"
 			}
@@ -27,14 +30,17 @@ export const productInfo = {
 		productTypes: {
 
 			jeans: {
+				coverImage: "/assets/jeans.jpeg",
 				filters: ["None", "Skinny", "Slim", "Boot Cut", "Flare"],
 				searchPlaceholder: "Skinny"
 			},
 			dresses: {
+				coverImage: "/assets/dresses3.jpeg",
 				filters: ["None", "Short", "Maxi", "Long", "Regular"],
 				searchPlaceholder: "Long Sleeve"
 			},
 			makeup: {
+				coverImage: "/assets/makeup2.jpeg",
 				filters: ["None", "Mascara", "Lip Gloss", "Foundation", "Blush"],
 				searchPlaceholder: "Brush Set"
 			}
@@ -46,14 +52,17 @@ export const productInfo = {
 		productTypes: {
 
 			beds: {
+				coverImage: "/assets/beds.jpeg",
 				filters: ["None", "Metal", "Ottoman", "Storage", "Wooden"],
 				searchPlaceholder: "Upholstered"
 			},
 			office: {
+				coverImage: "/assets/office.jpeg",
 				filters: ["None", "Desk", "Chair", "Lamp", "Shelf"],
 				searchPlaceholder: "Space Saving"
 			},
 			coffee_tables: {
+				coverImage: "/assets/coffee_table.jpeg",
 				filters: ["None", "Wood", "Glass", "Round", "Storage"],
 				searchPlaceholder: "Oak Effect"
 			}
