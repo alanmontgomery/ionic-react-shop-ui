@@ -1,0 +1,21 @@
+.categoryContainer {
+  
+  display: flex;
+  color: white;
+  margin-top: 1rem;
+}
+
+.categoryContainer p {
+
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  position: absolute;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 50%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin: 0 auto;
+  font-size: 2rem;
+}

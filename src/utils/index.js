@@ -4,7 +4,7 @@ export const productInfo = {
 
 	men: {
 		
-		coverImage: "",
+		coverImage: "/assets/men.jpeg",
 		productTypes: {
 
 			formal_shirts: {
@@ -23,7 +23,7 @@ export const productInfo = {
 	},
 	women: {
 
-		coverImage: "",
+		coverImage: "/assets/women.jpeg",
 		productTypes: {
 
 			jeans: {
@@ -42,7 +42,7 @@ export const productInfo = {
 	},
 	home: {
 
-		coverImage: "",
+		coverImage: "/assets/home.jpeg",
 		productTypes: {
 
 			beds: {
