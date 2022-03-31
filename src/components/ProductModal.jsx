@@ -1,14 +1,21 @@
 import { IonButton, IonButtons, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonFooter, IonIcon, IonLabel, IonNote, IonRow, IonText, IonToolbar } from "@ionic/react";
-import { cartOutline, closeCircle, heartOutline } from "ionicons/icons";
+import { closeCircle, heart, heartOutline } from "ionicons/icons";
+import { useStoreState } from "pullstate";
 import { useRef } from "react";
+
+import { checkFavourites } from "../store/Selectors";
+import { addToFavourites } from "../store/FavouritesStore";
+import { FavouritesStore } from "../store";
 
 import "./ProductModal.css";
 import { ProductReviews } from "./ProductReviews";
 import { ProductSpecificationsAccordion } from "./ProductSpecificationsAccordion";
+import { AddToCartButton } from "./AddToCartButton";
 
 export const ProductModal = props => {
 
-	const { dismiss, category, product } = props;
+	const { dismiss, category = false, product } = props;
+	const isFavourite = useStoreState(FavouritesStore, checkFavourites(product));
 	const contentRef = useRef(null);
 
 	return (
@@ -19,8 +26,8 @@ export const ProductModal = props => {
 						<IonIcon icon={closeCircle} size="large" />
 					</IonButton>
 
-					<IonButton color="light" onClick={dismiss} id="fave-button">
-						<IonIcon icon={heartOutline} size="large" />
+					<IonButton color="danger" onClick={() => addToFavourites(product, category)} id="fave-button">
+						<IonIcon icon={isFavourite ? heart : heartOutline} size="large" />
 					</IonButton>
 				</IonButtons>
 
@@ -37,7 +44,7 @@ export const ProductModal = props => {
 						<IonCol>
 							<IonText size="large" className="page-title">
 								<IonNote>shop</IonNote>
-								<IonLabel>{category}</IonLabel>
+								<IonLabel>{category ? category : "Favourite"}</IonLabel>
 							</IonText>
 						</IonCol>
 
@@ -59,10 +66,7 @@ export const ProductModal = props => {
 						</IonCol>
 
 						<IonCol size="8" className="ion-text-right">
-							<IonButton color="dark" expand="full">
-								<IonIcon icon={cartOutline} />&nbsp;
-								Add to Cart
-							</IonButton>
+							<AddToCartButton product={product} />
 						</IonCol>
 					</IonRow>
 				</IonToolbar>

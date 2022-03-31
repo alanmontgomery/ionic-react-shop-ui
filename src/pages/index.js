@@ -6,26 +6,19 @@ import ProductType from "./ProductType";
 import Category from "./Category";
 
 export const pages = [
+
   {
-    href: "/home",
-    icon: homeOutline,
+    href: "/categories",
+    icon: shirtOutline,
     component: Categories,
     default: true,
     isTab: true
   },
   {
     href: "/categories/:category/:type",
-    icon: homeOutline,
     component: ProductType,
     default: false,
     isTab: false
-  },
-  {
-    href: "/categories",
-    icon: shirtOutline,
-    component: Categories,
-    default: false,
-    isTab: true
   },
   {
     href: "/categories/:category",

@@ -14,6 +14,7 @@ const ProductType = () => {
   const productsRef = useRef();
 
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [filterCriteria, setFilterCriteria] = useState("None");
 
   const filters = productInfo[category].productTypes[type].filters;
@@ -51,10 +52,11 @@ const ProductType = () => {
       const response = await fetch(`/data/${category}/${type}.json`);
       const data = await response.json();
       setProducts(data);
+      setFilteredProducts(data);
     }
 
     getProducts();
-  }, [category,type]);
+  }, [category, type]);
 
   const openModal = () => {
 
@@ -63,6 +65,21 @@ const ProductType = () => {
       initialBreakpoint: 0.25,
       backdropBreakpoint: 0
     });
+  }
+
+  const performSearch = e => {
+
+    const searchCriteria = e.target.value.toLowerCase();
+    let tempFilteredProducts = [...products];
+
+    if (searchCriteria !== "") {
+      
+      tempFilteredProducts = tempFilteredProducts.filter(product => product.title.toLowerCase().includes(searchCriteria));
+      setFilteredProducts(tempFilteredProducts);
+    } else {
+
+      setFilteredProducts(products);
+    }
   }
 
   return (
@@ -116,11 +133,11 @@ const ProductType = () => {
           </IonCol>
         </IonRow>
 
-        <IonSearchbar color="light" animated={true} style={{"--border-radius": "none"}} placeholder={`Try '${searchPlaceholder}'`} />
+        <IonSearchbar color="light" animated={true} style={{"--border-radius": "none"}} placeholder={`Try '${searchPlaceholder}'`} onIonChange={e => performSearch(e)} />
 
         <IonGrid ref={productsRef} className="animate__animated">
           <IonRow>
-            {products.map((product, index) => {
+            {filteredProducts.map((product, index) => {
 
               if (product.image !== null && product.image !== "" && !product.image.includes("Placeholder")) {
                 return (

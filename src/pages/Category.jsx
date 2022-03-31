@@ -38,14 +38,12 @@ const Category = () => {
         <IonRow>
           {productTypes.map(product => (
 
-            <IonRouterLink routerLink={`/categories/${category}/${product.toLowerCase().replaceAll(" ", "_")}`}>
+            <IonRouterLink key={`${category}_${product}`} routerLink={`/categories/${category}/${product.toLowerCase().replaceAll(" ", "_")}`}>
               <div className={styles.categoryContainer}>
                 <img src={productInfo[category].productTypes[product].coverImage} alt="cover" />
                 <p>{capitalize(product)}</p>
               </div>
             </IonRouterLink>
-
-            // <IonButton key={c} routerLink={`/categories/${category}/${c.toLowerCase().replaceAll(" ", "_")}`}>{capitalize(c)}</IonButton>
           ))}
         </IonRow>
       </IonContent>
