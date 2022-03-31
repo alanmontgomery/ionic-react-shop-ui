@@ -3,7 +3,7 @@ A clothes shop UI built with Ionic Framework and React
 <br />
 If you'd like to support, you can <a className="link" href="https://www.buymeacoffee.com/ionicreacthub" target="_blank" rel="noopener">buy me a coffee</a> ☕️
 
-![Ionic React Shop app UI](https://repository-images.githubusercontent.com/436266987/44be15b9-0df7-4365-aedb-4f6585f9f422)
+![Ionic React Shop app UI](https://repository-images.githubusercontent.com/454230359/0440d6c9-f672-4a58-b5eb-b85abe9b7277)
 
 ### Included in this Ionic React Template/UI
 * Ionic 6 components
